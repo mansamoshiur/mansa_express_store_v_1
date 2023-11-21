@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import { FaPhoneAlt, FaEnvelope } from "react-icons/fa";
 import { IoIosArrowDown } from "react-icons/io";
-import Container from "./ui/container";
+import Container from "../../../components/ui/container";
 
 const TopHead = () => {
   return (

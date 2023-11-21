@@ -2,7 +2,7 @@ import Link from "next/link";
 import { FaShoppingBag, FaUser } from "react-icons/fa";
 import { CiSearch } from "react-icons/ci";
 
-import Container from "./ui/container";
+import Container from "../../../components/ui/container";
 
 const MiddleHead = () => {
   return (

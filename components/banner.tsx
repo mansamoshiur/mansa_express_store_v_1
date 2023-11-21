@@ -2,14 +2,13 @@
 import Image from "next/image";
 import { Key, SetStateAction, useState } from "react";
 import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import SliderData from "./slider-data";
+import "./product-slider/slick.css"
+import "./product-slider/slick-theme.css"
+import SliderData from "../app/(routes)/_components/slider-data";
 import { useRouter } from "next/navigation";
 
-
 const Banner = () => {
-  const router = useRouter()
+  const router = useRouter();
   const [dotActive, setDotActive] = useState(0);
   const settings = {
     dots: true,
@@ -26,7 +25,7 @@ const Banner = () => {
       <div
         style={{
           position: "absolute",
-          top: "70%",
+          top: "85%",
           left: "0",
           right: "0",
           margin: "0 auto",
@@ -101,10 +100,13 @@ const Banner = () => {
                     <h1 className="xl:text-5xl mdl:text-2xl xl:leading-[55px] lgl:mr-80 font-extrabold">
                       {value.title}
                     </h1>
-                    <p className="md:my-5 md:text-base xl:mr-80 mt-4 mb-20 text-xs">
+                    <p className="md:my-5 md:text-base xl:mr-80 mt-4 mb-20 text-base">
                       {value.desc}
                     </p>
-                    <button onClick={()=>router.push('/shop')} className="bg-[#e94560] hidden md:block text-white px-6 py-3 font-semibold rounded-md">
+                    <button
+                      onClick={() => router.push("/shop")}
+                      className="bg-[#e94560] hidden md:block text-white px-6 py-3 font-semibold rounded-md"
+                    >
                       Visit Collections
                     </button>
                   </div>

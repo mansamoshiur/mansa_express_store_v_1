@@ -5,11 +5,13 @@ import MenuItem from "@mui/material/MenuItem";
 import PopupState, { bindTrigger, bindMenu } from "material-ui-popup-state";
 import { IoIosArrowDown } from "react-icons/io";
 import { MdMenu } from "react-icons/md";
-import Container from "./ui/container";
-import NaveItems from "./nave-items";
+import Container from "../../../components/ui/container";
 import { Drawer, List, ListItemButton, ListItemText } from "@mui/material";
 import { useState } from "react";
 import Link from "next/link";
+import NaveItems from "./nave-items";
+import { Category } from "@/types";
+import { useRouter } from "next/navigation";
 
 const menuRoutes = [
   {
@@ -34,9 +36,14 @@ const menuRoutes = [
   },
 ];
 
+interface NavbarProps {
+  categories: Category[];
+}
+
 const drawerWidth = 200;
-const Navbar = () => {
+const Navbar = ({ categories }: NavbarProps) => {
   const [openDrawer, setOpenDrawer] = useState(false);
+  const router = useRouter();
   return (
     <div className="shadow-md">
       <Container>
@@ -59,12 +66,15 @@ const Navbar = () => {
                   }}
                   {...bindMenu(popupState)}
                 >
-                  {menuRoutes.map((route) => (
-                    <Link href={route.href} key={route.href}>
+                  {categories.map((category) => (
+                    <div
+                      onClick={() => router.push(`/categories/${category.id}`)}
+                      key={category.id}
+                    >
                       <MenuItem onClick={popupState.close}>
-                        {route.label}
+                        {category.name}
                       </MenuItem>
-                    </Link>
+                    </div>
                   ))}
                 </Menu>
               </React.Fragment>
