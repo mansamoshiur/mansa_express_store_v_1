@@ -63,8 +63,12 @@ const ProductSlider = ({ data }: ProductSliderProps) => {
     slidesToScroll: 4,
     initialSlide: 0,
     autoplay: true,
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />,
+    nextArrow: <SampleNextArrow onClick={function (event: MouseEvent<HTMLDivElement, globalThis.MouseEvent>): void {
+      throw new Error("Function not implemented.");
+    } } /> as React.ReactElement,
+    prevArrow: <SamplePrevArrow onClick={function (event: MouseEvent<HTMLDivElement, globalThis.MouseEvent>): void {
+      throw new Error("Function not implemented.");
+    } } />,
   };
 
   return (
